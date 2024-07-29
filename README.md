@@ -21,11 +21,6 @@ Check out the live demo of the application [here](https://to-do-kk.netlify.app/)
 - Backend: [Specify the backend technology if any]
 - Database: [Specify the database if any]
 
-## Getting Started
-
-### Prerequisites
-
-
 ## Usage
 
 1. **Add a Task:** Click on the "Add Task" button and fill in the details such as task name, deadline, and priority.
@@ -40,7 +35,7 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 
 ## Contact
 
-If you have any questions or feedback, feel free to reach out to me at [your-email@example.com].
+If you have any questions or feedback, feel free to reach out to me at [kavinkumar200448@gmail.com].
 
 Happy task managing!
 
