@@ -25,27 +25,6 @@ Check out the live demo of the application [here](https://to-do-kk.netlify.app/)
 
 ### Prerequisites
 
-To run this project locally, you need to have [Node.js](https://nodejs.org/en/) installed.
-
-### Installation
-
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/your-username/todo-list-app.git
-    ```
-2. Navigate to the project directory:
-    ```sh
-    cd todo-list-app
-    ```
-3. Install the dependencies:
-    ```sh
-    npm install
-    ```
-4. Start the development server:
-    ```sh
-    npm start
-    ```
-5. Open your browser and go to `http://localhost:3000` to see the application.
 
 ## Usage
 
@@ -58,9 +37,6 @@ To run this project locally, you need to have [Node.js](https://nodejs.org/en/) 
 
 Contributions are welcome! Please fork the repository and submit a pull request with your changes. For major changes, please open an issue first to discuss what you would like to change.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
