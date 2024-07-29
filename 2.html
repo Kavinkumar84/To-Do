@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+  <style>
+    body {
+     background-image: url('https://images.pexels.com/photos/5717479/pexels-photo-5717479.jpeg?cs=srgb&dl=pexels-polina-kovaleva-5717479.jpg&fm=jpg');
+ background-repeat: no-repeat;
+ background-attachment: fixed;  
+ background-size: cover;
+    }
+   body {
+     font-family: Arial, sans-serif;
+     background-color: #f5f5f5;
+     margin: 0;
+     padding: 20px;
+     text-align: justify;
+   }
+   h1 {
+     text-align: center;
+   }
+   form {
+     background-color: #848080;
+     max-width:400px;
+     margin: 15px auto;
+     padding: 20px 50PX;
+     border-radius: 5px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   }
+   label {
+     display: block;
+     margin-bottom: 5px;
+     font-weight: bold;
+   }
+   input[type="text"],
+   input[type="datetime-local"] {
+     width: 100%;
+     padding: 8px;
+     border: 1px solid #ccc;
+     border-radius: 3px;
+     box-sizing: border-box;
+   }
+   button {
+     background-color: #4CAF50;
+     color: #ffffff;
+     padding: 10px 40px;
+     border: none;
+     border-radius: 3px;
+     cursor: pointer;
+   }
+   button:hover {
+     background-color: #45a049;
+   }
+   ul {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+   }
+   li {
+     background-color: #ffffff;
+     padding: 10px;
+     border-radius: 3px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     margin-bottom: 10px;
+   }
+   .bar {
+     padding: 5px 10px;
+     margin-left: 10px;
+     border-radius: 3px;
+     cursor: pointer;
+   }
+
+   .bar-content {
+     background-color: #4CAF50;
+   }
+
+   .bar-logout {
+     background-color: #e74c3c;
+   }
+   header {
+     display: flex;
+     justify-content: flex-end;
+   
+     padding: 10px;
+     color: white;
+   }
+
+ </style>
+</head>
+<body>
+  <header>
+    <div class="bar bar-logout"><a href="Index.html">Logout</a></div>
+  </header>
+  <br><br>
+  <h1 style="font-family:lucida handwriting ;color:rgb(12, 11, 12);">To-Do<span> List</span></h1>
+  <form id="todoForm">
+    <label for="task">Task:</label>
+    <input type="text" id="task" required>
+    <label for="dueDate">Due Date:</label>
+    <input type="datetime-local" id="dueDate" required>
+    <center>
+      <button type="submit">Add Task</button>
+    </center>
+  </form>
+  
+  <br>
+  <br>
+  <br>
+  <center>
+    <button onclick="displayAllTasks();" style='font-size:20px; background-color: #111111;'>All Tasks</button>
+    <button onclick="displayCompletedTasks();" style='font-size:20px; background-color: #111111;'>Completed Tasks</button>
+  </center>
+  <br>
+  <ul id="taskList"></ul>
+  
+  <script>
+    var tasks = [];
+
+    function displayAllTasks() {
+      var taskList = document.getElementById("taskList");
+
+      taskList.innerHTML = "";
+
+      for (var i = 0; i < tasks.length; i++) {
+        var task = tasks[i];
+
+        if (!task.completed) {
+          var listItem = document.createElement("li");
+          listItem.textContent = "Task: " + task.taskName + " | Due Date: " + task.dueDate;
+
+          var completeButton = document.createElement("button");
+          completeButton.textContent = "Complete";
+          completeButton.setAttribute("onclick", "completeTask(" + i + ")");
+          completeButton.style.marginLeft = "10px";
+          listItem.appendChild(completeButton);
+
+          taskList.appendChild(listItem);
+        }
+      }
+    }
+
+    function completeTask(index) {
+      tasks[index].completed = true;
+      tasks[index].completedDate = new Date().toLocaleString();
+
+      displayAllTasks();
+    }
+
+    function displayCompletedTasks() {
+      var taskList = document.getElementById("taskList");
+
+      taskList.innerHTML = "";
+
+      for (var i = 0; i < tasks.length; i++) {
+        var task = tasks[i];
+
+        if (task.completed) {
+          var listItem = document.createElement("li");
+          listItem.textContent = "Completed Task: " + task.taskName + " | Completed Date: " + task.completedDate;
+
+          taskList.appendChild(listItem);
+        }
+      }
+    }
+
+    document.getElementById("todoForm").addEventListener("submit", function(e) {
+      e.preventDefault(); 
+      var taskInput = document.getElementById("task");
+      var dueDateInput = document.getElementById("dueDate");
+      var dueTime = new Date(dueDateInput.value);
+
+      var task = {
+        taskName: taskInput.value,
+        dueDate: dueTime.toLocaleString(),
+        completed: false,
+        completedDate: null
+      };
+
+      tasks.push(task);
+
+      taskInput.value = "";
+      dueDateInput.value = "";
+
+      displayAllTasks();
+    });
+  </script>
+</body>
+</html>

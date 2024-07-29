@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #6abadeba;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .login {
+            width: 382px;
+            overflow: hidden;
+            margin: 20px auto;
+            padding: 80px;
+            background: #23463f;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #277582;
+            padding: 20px;
+            margin: 0;
+        }
+
+        label {
+            color: #08ffd1;
+            font-size: 17px;
+        }
+	center {
+	    color: #08ffd1;
+            font-size: 17px;
+
+	}
+
+        #Uname, #Pass {
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+            margin-bottom: 10px;
+        }
+
+        #Uname {
+            margin-top: 10px;
+        }
+
+        #Pass {
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 300px;
+            height: 35px;
+            border: none;
+            border-radius: 17px;
+            background-color: #277582;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #1f5e6f;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            background-color: #1a4d5e;
+            transform: scale(0.98);
+        }
+
+        span {
+            color: white;
+            font-size: 17px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>Login Page</h2><br>
+    <div class="login">
+        <form id="login">
+            <label><b>User Name</b></label>
+            <input type="text" name="Uname" id="Uname" placeholder="Username">
+            <br>
+            <label><b>Password</b></label>
+            <input type="password" name="Pass" id="Pass" placeholder="Password">
+            <br>
+            <button type="button" onclick="checkPassword();">Login</button>
+            <br>
+            <input type="checkbox" id="check">
+            <span>Remember me</span>
+            <br><br>
+        </form>
+<center>Id : anything</center>
+<center>pass : 123</center>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const correctPassword = "123"; 
+            const enteredPassword = document.getElementById("Pass").value;
+
+            if (enteredPassword === correctPassword) {
+                window.location.href = "2.html";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
